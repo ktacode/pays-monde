@@ -1,0 +1,9 @@
+.text {
+  /* color: var(--color-black--dark);
+   */
+  color: red;
+}
+
+.text--md {
+  font-size: 4rem;
+}
