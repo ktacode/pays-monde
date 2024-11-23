@@ -16,5 +16,4 @@ body {
   background-color: var(--color-white--smoke);
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
