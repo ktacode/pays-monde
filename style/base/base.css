@@ -11,6 +11,10 @@ html {
 }
 
 body {
+  height: 100vh;
   box-sizing: inherit;
   background-color: var(--color-white--smoke);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

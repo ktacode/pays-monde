@@ -1,0 +1,11 @@
+.header {
+  flex: 0 0 7%;
+}
+
+.section {
+  flex: 0 0 90%;
+}
+
+.footer {
+  flex: 0 0 3%;
+}
