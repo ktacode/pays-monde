@@ -1,9 +1,7 @@
 .text {
-  /* color: var(--color-black--dark);
-   */
-  color: red;
+  color: var(--color-black--dark);
 }
 
 .text--md {
-  font-size: 4rem;
+  font-size: 1.6rem;
 }
