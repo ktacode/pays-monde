@@ -5,9 +5,13 @@
 .section {
   flex: 0 0 88%;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   position: relative;
+  gap: 1rem;
+  padding: 1rem 15rem;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
 
 .footer {
