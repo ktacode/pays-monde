@@ -1,0 +1,20 @@
+/* .form {
+   background-color: var(--color-white--pure);
+   
+  background-color: rebeccapurple;
+}
+
+.text-input {
+  all: unset;
+  border: none;
+  outline: none;
+}
+ */
+
+.search-form {
+  width: 30rem;
+  padding: 2rem 0;
+  background-color: var(--color-white--pure);
+  border-radius: 2rem;
+  box-shadow: 0 0.35rem 0.5rem rgba(0, 0, 0, 0.075);
+}
