@@ -25,3 +25,7 @@
 .text--lg {
   font-size: 2rem;
 }
+
+.text--secondary {
+  color: var(--color-black--light);
+}
