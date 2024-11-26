@@ -4,6 +4,9 @@
 
 .section {
   flex: 0 0 88%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer {
