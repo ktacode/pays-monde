@@ -2,7 +2,11 @@
   padding: 0.5rem 2rem;
   background-color: var(--color-white--pure);
   border-radius: 6rem;
-  box-shadow: 0 0.35rem 0.5rem rgba(0, 0, 0, 0.075);
+  /* box-shadow: 0 0.35rem 0.5rem rgba(0, 0, 0, 0.075); */
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .text-input {
@@ -10,4 +14,8 @@
   outline: none;
   padding: 1rem 0;
   width: 30rem;
+}
+
+.text-input:focus .search-form {
+  box-shadow: 0 0.35rem 0.5rem rgba(0, 0, 0, 0.075);
 }
