@@ -2,11 +2,12 @@
   padding: 0.5rem 2rem;
   background-color: var(--color-white--pure);
   border-radius: 6rem;
-  /* box-shadow: 0 0.35rem 0.5rem rgba(0, 0, 0, 0.075); */
+
   position: absolute;
   top: 1rem;
   left: 50%;
   transform: translateX(-50%);
+  transition: box-shadow 0.3s ease;
 }
 
 .text-input {
@@ -16,6 +17,6 @@
   width: 30rem;
 }
 
-.text-input:focus .search-form {
-  box-shadow: 0 0.35rem 0.5rem rgba(0, 0, 0, 0.075);
+.search-form:has(.text-input:focus) {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
