@@ -5,6 +5,7 @@ const API = `https://restcountries.com/v3.1`;
 const searchForm = document.querySelector(".search-form");
 const section = document.querySelector(".section");
 const spinner = document.querySelector(".spinner");
+const navItems = document.querySelectorAll(".nav__item");
 
 async function getAllCountries() {
   section.innerHTML = "";
@@ -90,6 +91,16 @@ async function fetchCountry(name = "drc") {
   }
 }
 
+function updateNavItems(hash) {
+  navItems.forEach((i) => i.classList.remove("nav__item--selected"));
+
+  navItems.forEach((i) => {
+    if (i.hash === hash) {
+      i.classList.add("nav__item--selected");
+    }
+  });
+}
+
 function initUI() {
   // Listens to submit event
   searchForm.addEventListener("submit", (e) => {
@@ -105,6 +116,7 @@ function initUI() {
     (e) => {
       const { hash } = e.currentTarget.location;
       const region = hash.substring(1);
+      updateNavItems(hash);
       if (region === "all") {
         getAllCountries();
         return;
