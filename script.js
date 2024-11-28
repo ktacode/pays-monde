@@ -29,7 +29,7 @@ async function getAllCountries() {
   try {
     const result = await fetch(`${API}/all`);
     const data = await result.json();
-    console.log(data);
+    renderCountries(data);
   } catch (error) {
     console.log(error);
   }
@@ -105,6 +105,8 @@ function initUI() {
 
 function start() {
   initUI();
+
+  getAllCountries();
 }
 
 start();
