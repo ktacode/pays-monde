@@ -7,6 +7,18 @@ const section = document.querySelector(".section");
 const spinner = document.querySelector(".spinner");
 const navItems = document.querySelectorAll(".nav__item");
 
+function formatNumber(num) {
+  if (num >= 1_000_000_000) {
+    return (num / 1_000_000_000).toFixed(1).replace(/\.0$/, "") + " Md"; // Billions
+  } else if (num >= 1_000_000) {
+    return (num / 1_000_000).toFixed(1).replace(/\.0$/, "") + " M"; // Millions
+  } else if (num >= 1_000) {
+    return (num / 1_000).toFixed(1).replace(/\.0$/, "") + " K"; // Thousands
+  } else {
+    return num.toString(); // Numbers less than 1000
+  }
+}
+
 async function getAllCountries() {
   section.innerHTML = "";
   try {
@@ -35,6 +47,7 @@ async function getCountriesPerRegion(region) {
 
 function renderCountry(country) {
   const [currency] = Object.keys(country.currencies);
+  const population = formatNumber(country.population);
   const markup = `<div class="card">
 
         <img src="${country.flags.png}" alt="${
@@ -57,8 +70,8 @@ function renderCountry(country) {
           </p>
           <p class="text text--sm text--secondary">
             <span class="material-icons">diversity_3</span>&nbsp;${
-              country.population || "Indéfini"
-            } M
+              population || "Indéfini"
+            } 
           </p>
           <p class="text text--sm text--secondary">
             <span class="material-icons">attach_money</span>&nbsp;${
