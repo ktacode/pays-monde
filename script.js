@@ -46,7 +46,9 @@ async function getCountriesPerRegion(region) {
 }
 
 function renderCountry(country) {
-  const [currency] = Object.keys(country.currencies);
+  const [currency] = country.currencies
+    ? Object.keys(country.currencies)
+    : "Indéfini";
   const population = formatNumber(country.population);
   const markup = `<div class="card">
 
@@ -60,7 +62,7 @@ function renderCountry(country) {
           }</p>
           <p class="text text--sm text--secondary">
             <span class="material-icons">location_city</span>&nbsp;${
-              country.capital[0] || "Indéfini"
+              country.capital ? country.capital[0] : "Indéfini"
             }
           </p>
           <p class="text text--sm text--secondary">
@@ -75,8 +77,12 @@ function renderCountry(country) {
           </p>
           <p class="text text--sm text--secondary">
             <span class="material-icons">attach_money</span>&nbsp;${
-              country.currencies[currency]?.name || "Indéfini"
-            }(${country.currencies[currency]?.symbol || "Indéfini"})
+              country.currencies
+                ? country.currencies[currency]?.name
+                : "Indéfini"
+            }(${
+    country.currencies ? country.currencies[currency]?.symbol : "Indéfini"
+  })
             
           </p>
         </div>
