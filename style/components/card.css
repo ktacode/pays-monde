@@ -7,12 +7,7 @@
 }
 
 .card__img {
-  height: 20rem;
-  background-image: linear-gradient(
-    to right bottom,
-    var(--color-green--light),
-    var(--color-green--dark)
-  );
+  height: 15rem;
 }
 
 .card__details {
