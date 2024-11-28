@@ -38,11 +38,11 @@ async function getAllCountries() {
 function renderCountry(country) {
   const [currency] = Object.keys(country.currencies);
   const markup = `<div class="card">
-        <div class="card__img">
+
         <img src="${country.flags.png}" alt="${
     country.flags.alt
-  }" class="img img__country-flag"/>
-        </div>
+  }" class="img img__country-flag card__img"/>
+
         <div class="card__details">
           <p class="text text--md text--bold">${
             country.name?.common || "Indéfini"
