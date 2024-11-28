@@ -6,8 +6,9 @@
   flex: 0 0 88%;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  padding: 1rem 15rem;
+  padding: 1rem 10rem;
   flex-wrap: wrap;
   overflow: scroll;
 }
