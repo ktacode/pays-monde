@@ -27,8 +27,10 @@ const spinner = document.querySelector(".spinner");
 
 async function getAllCountries() {
   try {
+    spinner.style.opacity = 1;
     const result = await fetch(`${API}/all`);
     const data = await result.json();
+    spinner.style.opacity = 0;
     renderCountries(data);
   } catch (error) {
     console.log(error);
@@ -75,6 +77,7 @@ function renderCountry(country) {
 }
 
 function renderCountries(list) {
+  section.innerHTML = "";
   list.map((c) => {
     section.insertAdjacentHTML("beforeend", renderCountry(c));
   });
@@ -83,7 +86,6 @@ function renderCountries(list) {
 async function fetchCountry(name = "drc") {
   try {
     spinner.style.opacity = 1;
-    section.innerHTML = "";
     const result = await fetch(`${API}/name/${name}`);
     const data = await result.json();
     spinner.style.opacity = 0;
