@@ -26,6 +26,7 @@ const section = document.querySelector(".section");
 const spinner = document.querySelector(".spinner");
 
 async function getAllCountries() {
+  section.innerHTML = "";
   try {
     spinner.style.opacity = 1;
     const result = await fetch(`${API}/all`);
@@ -38,6 +39,7 @@ async function getAllCountries() {
 }
 
 async function getCountriesPerRegion(region) {
+  section.innerHTML = "";
   try {
     spinner.style.opacity = 1;
     const result = await fetch(`${API}/region/${region}`);
@@ -89,13 +91,13 @@ function renderCountry(country) {
 }
 
 function renderCountries(list) {
-  section.innerHTML = "";
   list.map((c) => {
     section.insertAdjacentHTML("beforeend", renderCountry(c));
   });
 }
 
 async function fetchCountry(name = "drc") {
+  section.innerHTML = "";
   try {
     spinner.style.opacity = 1;
     const result = await fetch(`${API}/name/${name}`);
@@ -108,6 +110,7 @@ async function fetchCountry(name = "drc") {
 }
 
 function initUI() {
+  // Listens to submit event
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const { value } = searchForm.querySelector(".text-input");
@@ -115,6 +118,20 @@ function initUI() {
     fetchCountry(value);
     searchForm.querySelector(".text-input").value = "";
   });
+
+  window.addEventListener(
+    "hashchange",
+    (e) => {
+      const { hash } = e.currentTarget.location;
+      const region = hash.substring(1);
+      if (region === "all") {
+        getAllCountries();
+        return;
+      }
+      getCountriesPerRegion(region);
+    },
+    false
+  );
 }
 
 function start() {
