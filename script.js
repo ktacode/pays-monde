@@ -29,8 +29,8 @@ async function fetchCountry(name = "drc") {
 function initUI() {
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    const inputText = searchForm.querySelector(".text-input");
-    console.log(inputText.value);
+    const { value } = searchForm.querySelector(".text-input");
+    fetchCountry(value);
   });
 }
 
