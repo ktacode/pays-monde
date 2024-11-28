@@ -34,9 +34,44 @@ async function getAllCountries() {
   }
 }
 
+function renderCountry(country) {
+  const [currency] = Object.keys(country.currencies);
+  const markup = `<div class="card">
+        <div class="card__img"></div>
+        <div class="card__details">
+          <p class="text text--md text--bold">${
+            country.name?.common || "Indéfini"
+          }</p>
+          <p class="text text--sm text--secondary">
+            <span class="material-icons">location_city</span>&nbsp;${
+              country.capital[0] || "Indéfini"
+            }
+          </p>
+          <p class="text text--sm text--secondary">
+            <span class="material-icons">south_america</span>&nbsp;${
+              country.region || "Indéfini"
+            }
+          </p>
+          <p class="text text--sm text--secondary">
+            <span class="material-icons">diversity_3</span>&nbsp;${
+              country.population || "Indéfini"
+            } M
+          </p>
+          <p class="text text--sm text--secondary">
+            <span class="material-icons">attach_money</span>&nbsp;${
+              country.currencies[currency]?.name || "Indéfini"
+            }(${country.currencies[currency]?.symbol || "Indéfini"})
+            
+          </p>
+        </div>
+      </div>`;
+
+  return markup;
+}
+
 function renderCountries(list) {
   list.map((c) => {
-    section.insertAdjacentHTML("beforeend", COUNTRY_CARD_MARKUP);
+    section.insertAdjacentHTML("beforeend", renderCountry(c));
   });
 }
 
