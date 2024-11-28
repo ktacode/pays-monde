@@ -24,3 +24,13 @@
 .search-form:has(.text-input:focus) {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+@media screen and (max-width: 599px) {
+  .search-form {
+    top: 5rem;
+  }
+  .text-input {
+    width: 22rem;
+    padding: 0.5rem 0;
+  }
+}
