@@ -37,6 +37,18 @@ async function getAllCountries() {
   }
 }
 
+async function getCountriesPerRegion(region) {
+  try {
+    spinner.style.opacity = 1;
+    const result = await fetch(`${API}/region/${region}`);
+    const data = await result.json();
+    spinner.style.opacity = 0;
+    renderCountries(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function renderCountry(country) {
   const [currency] = Object.keys(country.currencies);
   const markup = `<div class="card">
