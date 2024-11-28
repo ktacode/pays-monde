@@ -2,6 +2,8 @@
 
 const API = `https://restcountries.com/v3.1`;
 
+const searchForm = document.querySelector(".search-form");
+
 async function getAllCountries() {
   try {
     const result = await fetch(`${API}/all`);
@@ -24,6 +26,16 @@ async function fetchCountry(name = "drc") {
   }
 }
 
-function start() {}
+function initUI() {
+  searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const inputText = searchForm.querySelector(".text-input");
+    console.log(inputText.value);
+  });
+}
+
+function start() {
+  initUI();
+}
 
 start();
