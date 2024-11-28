@@ -23,6 +23,7 @@ const COUNTRY_CARD_MARKUP = `<div class="card">
 
 const searchForm = document.querySelector(".search-form");
 const section = document.querySelector(".section");
+const spinner = document.querySelector(".spinner");
 
 async function getAllCountries() {
   try {
@@ -81,8 +82,11 @@ function renderCountries(list) {
 
 async function fetchCountry(name = "drc") {
   try {
+    spinner.style.opacity = 1;
+    section.innerHTML = "";
     const result = await fetch(`${API}/name/${name}`);
     const data = await result.json();
+    spinner.style.opacity = 0;
     renderCountries(data);
   } catch (error) {
     console.log(error);
