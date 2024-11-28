@@ -14,8 +14,16 @@ async function getAllCountries() {
 
 function renderCountries(list) {}
 
-function start() {
-  getAllCountries();
+async function fetchCountry(name = "drc") {
+  try {
+    const result = await fetch(`${API}/name/${name}`);
+    const data = await result.json();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
 }
+
+function start() {}
 
 start();
