@@ -22,6 +22,7 @@ const COUNTRY_CARD_MARKUP = `<div class="card">
       </div>`;
 
 const searchForm = document.querySelector(".search-form");
+const section = document.querySelector(".section");
 
 async function getAllCountries() {
   try {
@@ -33,13 +34,17 @@ async function getAllCountries() {
   }
 }
 
-function renderCountries(list) {}
+function renderCountries(list) {
+  list.map((c) => {
+    section.insertAdjacentHTML("beforeend", COUNTRY_CARD_MARKUP);
+  });
+}
 
 async function fetchCountry(name = "drc") {
   try {
     const result = await fetch(`${API}/name/${name}`);
     const data = await result.json();
-    console.log(data);
+    renderCountries(data);
   } catch (error) {
     console.log(error);
   }
