@@ -36,7 +36,6 @@ async function getAllCountries() {
 
 function renderCountry(country) {
   const [currency] = Object.keys(country.currencies);
-  console.log(country);
   const markup = `<div class="card">
         <div class="card__img">
         <img src="${country.flags.png}" alt="${
@@ -94,7 +93,9 @@ function initUI() {
   searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const { value } = searchForm.querySelector(".text-input");
+    if (!value) return;
     fetchCountry(value);
+    searchForm.querySelector(".text-input").value = "";
   });
 }
 
